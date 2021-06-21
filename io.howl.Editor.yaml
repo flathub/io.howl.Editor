@@ -1,6 +1,6 @@
 app-id: io.howl.Editor
 runtime: org.gnome.Platform
-runtime-version: '3.36'
+runtime-version: '40'
 sdk: org.gnome.Sdk
 command: howl
 rename-appdata-file: howl.appdata.xml
@@ -32,6 +32,6 @@ modules:
         strip-components: 0
         dest: 'src/deps'
       - type: archive
-        url: 'http://nordman.org/mirror/lpeg/lpeg-0.10.2.tar.gz'
-        sha256: 'd1a7698e4bcd0ac305633774062d22b27300a41673c3d733ea9993244a64ea6f'
+        url: 'http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz'
+        sha256: '48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe'
         strip-components: 0
