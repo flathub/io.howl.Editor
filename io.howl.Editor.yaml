@@ -36,6 +36,8 @@ modules:
         commit: 3f9389edc6cdf3f78a6896d550c236860aed62b2
         dest: 'src/deps/LuaJIT-2.1.0-beta3~git'
       - type: shell
+        only-arches:
+          - aarch64
         commands:
           - rm -fr src/deps/LuaJIT-2.1.0-beta3
           - mv src/deps/LuaJIT-2.1.0-beta3~git src/deps/LuaJIT-2.1.0-beta3
