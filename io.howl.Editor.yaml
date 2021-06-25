@@ -26,12 +26,18 @@ modules:
         sha256: '834b06e423d360c97197e7abec99b623fdc5ed3a0c39b88d6467e499074585e1'
       - type: patch
         path: appdata_oars_release.patch
-      - type: archive
-        url: 'http://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz'
-        sha256: '1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3'
-        strip-components: 0
-        dest: 'src/deps'
-      - type: archive
-        url: 'http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz'
-        sha256: '48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe'
-        strip-components: 0
+      - type: git
+        # Try master for LuaJIT on aarch64 as the included version crashes
+        # when building.
+        only-arches:
+          - aarch64
+        url: https://github.com/LuaJIT/LuaJIT
+        # branch: v2.1
+        commit: 3f9389edc6cdf3f78a6896d550c236860aed62b2
+        dest: 'src/deps/LuaJIT-2.1.0-beta3~git'
+      - type: shell
+        only-arches:
+          - aarch64
+        commands:
+          - rm -fr src/deps/LuaJIT-2.1.0-beta3
+          - mv src/deps/LuaJIT-2.1.0-beta3~git src/deps/LuaJIT-2.1.0-beta3
