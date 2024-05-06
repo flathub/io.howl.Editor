@@ -1,6 +1,6 @@
 app-id: io.howl.Editor
 runtime: org.gnome.Platform
-runtime-version: '40'
+runtime-version: '46'
 sdk: org.gnome.Sdk
 command: howl
 rename-appdata-file: howl.appdata.xml
@@ -25,7 +25,7 @@ modules:
         url: 'https://github.com/howl-editor/howl/releases/download/0.6/howl-0.6.tgz'
         sha256: '834b06e423d360c97197e7abec99b623fdc5ed3a0c39b88d6467e499074585e1'
       - type: patch
-        path: appdata_oars_release.patch
+        path: fix_appdata.patch
       - type: git
         # Try master for LuaJIT on aarch64 as the included version crashes
         # when building.
