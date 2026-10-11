@@ -1,29 +1,29 @@
 app-id: io.howl.Editor
-runtime: org.gnome.Platform
-runtime-version: '49'
-sdk: org.gnome.Sdk
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
 command: howl
 rename-appdata-file: howl.appdata.xml
 rename-desktop-file: howl.desktop
 rename-icon: howl
 copy-icon: true
 finish-args:
-  - '--share=ipc'
-  - '--share=network'
-  - '--socket=x11'
-  - '--socket=wayland'
-  - '--filesystem=host'
-  - '--own-name=io.howl.*'
-  - '--talk-name=org.freedesktop.Flatpak'
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --filesystem=host
+  - --own-name=io.howl.*
+  - --talk-name=org.freedesktop.Flatpak
 modules:
   - name: howl
     buildsystem: simple
     build-commands:
-      - 'make -C src install PREFIX=$FLATPAK_DEST'
+      - make -C src install PREFIX=$FLATPAK_DEST
     sources:
       - type: archive
-        url: 'https://github.com/howl-editor/howl/releases/download/0.6/howl-0.6.tgz'
-        sha256: '834b06e423d360c97197e7abec99b623fdc5ed3a0c39b88d6467e499074585e1'
+        url: https://github.com/howl-editor/howl/releases/download/0.6/howl-0.6.tgz
+        sha256: 834b06e423d360c97197e7abec99b623fdc5ed3a0c39b88d6467e499074585e1
       - type: patch
         path: fix_appdata.patch
       - type: git
@@ -34,7 +34,7 @@ modules:
         url: https://github.com/LuaJIT/LuaJIT
         # branch: v2.1
         commit: 3f9389edc6cdf3f78a6896d550c236860aed62b2
-        dest: 'src/deps/LuaJIT-2.1.0-beta3~git'
+        dest: src/deps/LuaJIT-2.1.0-beta3~git
       - type: shell
         only-arches:
           - aarch64
